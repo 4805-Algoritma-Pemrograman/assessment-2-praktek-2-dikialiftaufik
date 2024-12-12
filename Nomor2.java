@@ -45,7 +45,7 @@ public class Nomor2 {
         
         // Proses pembelian buku
         while (true) {
-            System.out.print("Masukan pilihan buku [1/2/3/4]: ");
+            System.out.println("Masukan pilihan buku [1/2/3/4]: ");
             int pilihanBuku = input.nextInt();
             daftarBuku.add(pilihanBuku);
             
