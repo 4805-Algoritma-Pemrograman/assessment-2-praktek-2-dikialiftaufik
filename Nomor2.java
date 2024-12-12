@@ -2,73 +2,54 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Nomor2 {
-    // Array harga buku
-    static int[] hargaBuku = {350000, 450000, 500000, 95000};
-    
-    // Array nama buku
-    static String[] namaBuku = {"Sherlock Holmes", "Arsene Lupin", "Game of Throne", "Psychology of Money"};
-    
-    // Prosedur untuk menghitung total harga buku
-    public static int hitungTotalHarga(ArrayList<Integer> daftarBuku) {
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+        int[] hargaBuku = {350000, 450000, 500000, 95000};
+        String[] namaBuku = {"Sherlock Holmes", "Arsene Lupin", "Game Of Throne", "Psychology Of Money"};
+
+        for (int i = 0; i < 4; i++) {
+            System.out.println((i+1) + ". " + namaBuku[i] + " " + hargaBuku[i]);
+        }
+
+        ArrayList<Integer> hargaBelanja = new ArrayList<>();
+
+        while (true) {
+            int pilihan = input.nextInt();
+            hargaBelanja.add(hargaBuku[pilihan-1]);
+            String jawaban = input.next();
+            if (jawaban.equalsIgnoreCase("N")) {
+                break;
+            }
+        }
+
+        int totalHarga = hitungTotalHarga(hargaBelanja);
+        int voucherBelanja = hitungVoucherBelanja(totalHarga);
+
+        System.out.println("Total voucher belanja : " + voucherBelanja);
+        System.out.println("Total yang harus dibayar : " + (totalHarga + 50000 - voucherBelanja));
+
+        System.out.println(Nomor2.class.getDeclaredMethods().length);
+    }
+
+    public static int hitungTotalHarga(ArrayList<Integer> hargaBelanja) {
         int totalHarga = 0;
-        for (int indexBuku : daftarBuku) {
-            totalHarga += hargaBuku[indexBuku - 1];
+        for (int harga : hargaBelanja) {
+            totalHarga += harga;
         }
         return totalHarga;
     }
-    
-    // Prosedur untuk menghitung voucher
-    public static int hitungVoucher(int totalHarga) {
+
+    public static int hitungVoucherBelanja(int totalHarga) {
         if (totalHarga < 200000) {
             return 0;
-        } else if (totalHarga >= 200000 && totalHarga < 500000) {
+        } else if (totalHarga >= 200000 && totalHarga <= 500000) {
             return 50000;
-        } else if (totalHarga >= 500000 && totalHarga < 750000) {
+        } else if (totalHarga > 500000 && totalHarga <= 750000) {
             return 100000;
-        } else if (totalHarga >= 750000 && totalHarga < 1000000) {
+        } else if (totalHarga > 750000 && totalHarga <= 1000000) {
             return 150000;
         } else {
             return 200000;
         }
-    }
-    
-    public static void main(String[] args){
-        Scanner input = new Scanner(System.in);
-        
-        // Tampilkan daftar buku
-        for (int i = 0; i < namaBuku.length; i++) {
-            System.out.println((i+1) + " " + namaBuku[i] + " " + hargaBuku[i]);
-        }
-        
-        // ArrayList untuk menyimpan buku yang dipilih
-        ArrayList<Integer> daftarBuku = new ArrayList<>();
-        
-        // Proses pembelian buku
-        while (true) {
-            System.out.println("Masukan pilihan buku [1/2/3/4]: ");
-            int pilihanBuku = input.nextInt();
-            daftarBuku.add(pilihanBuku);
-            
-            System.out.print("Input lagi (Y/N)?: ");
-            String konfirmasi = input.next();
-            
-            if (konfirmasi.equalsIgnoreCase("N")) {
-                break;
-            }
-        }
-        
-        // Hitung total harga
-        int totalHarga = hitungTotalHarga(daftarBuku);
-        
-        // Hitung voucher
-        int voucher = hitungVoucher(totalHarga);
-        
-        // Tampilkan total voucher dan total harga
-        System.out.println("Total voucher belanja : " + voucher);
-        System.out.println("Total yang harus dibayar : " + (totalHarga - voucher));
-        
-        input.close();
-        
-        System.out.println(Nomor2.class.getDeclaredMethods().length);
     }
 }
