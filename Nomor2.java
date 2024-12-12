@@ -7,10 +7,6 @@ public class Nomor2 {
         int[] hargaBuku = {350000, 450000, 500000, 95000};
         String[] namaBuku = {"Sherlock Holmes", "Arsene Lupin", "Game Of Throne", "Psychology Of Money"};
 
-        for (int i = 0; i < 4; i++) {
-            System.out.println((i+1) + ". " + namaBuku[i] + " " + hargaBuku[i]);
-        }
-
         ArrayList<Integer> hargaBelanja = new ArrayList<>();
 
         while (true) {
