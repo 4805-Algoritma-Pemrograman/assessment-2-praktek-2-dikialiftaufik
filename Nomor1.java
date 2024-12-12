@@ -1,19 +1,20 @@
 import java.util.Scanner;
 
 public class Nomor1 {
-    // Prosedur untuk menampilkan deret FizzBuzz
+    
     public static void tampilkanFizzBuzz(int n) {
-        for (int i = 1; i <= n; i++) {
+        for (int i = 0; i < n; i++) {
             if (i % 3 == 0 && i % 5 == 0) {
-                System.out.println("FizzBuzz");
+                System.out.print("FizzBuzz ");
             } else if (i % 3 == 0) {
-                System.out.println("Fizz");
+                System.out.print("Fizz ");
             } else if (i % 5 == 0) {
-                System.out.println("Buzz");
+                System.out.print("Buzz ");
             } else {
-                System.out.println(i);
+                System.out.print(i + " ");
             }
         }
+        System.out.println();
     }
 
     public static void main(String[] args){
@@ -22,6 +23,7 @@ public class Nomor1 {
         /* Pekerjaan anda mulai dari sini */
         tampilkanFizzBuzz(N);
         /* Pekerjaan anda berakhir sisi */
+        
         System.out.println(Nomor1.class.getDeclaredMethods().length); 
     }
 }
