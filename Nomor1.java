@@ -6,10 +6,11 @@ public class Nomor1 {
         Scanner input = new Scanner(System.in);
         int N = input.nextInt();
         /* Pekerjaan anda mulai dari sini */
+        System.out.print("Masukan nilai N : " + N + "\n");
         cetakFizzBuzz(N);
-        System.out.println();
-        System.out.println(Nomor1.class.getDeclaredMethods().length); 
         /* Pekerjaan anda berakhir sini */
+
+        System.out.println(Nomor1.class.getDeclaredMethods().length); 
     }
     
     public static void cetakFizzBuzz(int N) {
